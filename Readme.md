@@ -56,21 +56,18 @@ Make sure that you have the Docker Desktop installed.
 If you still have a previous Docker container running for previous lab, stop and delete that container in Docker Desktop first. 
 Now we can load a docker container on Mac OS or Windows within the lab code folder, i.e. run following command within your ```CSSLabs-Experiments\``` folder:
 
-        - Mac OS:
-        ```bash
-        docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-        ```
-
-        - Windows Command Prompt:
-        ```bash
-        docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-        ```
-
-        - Windows PowerShell:
-        ```bash
-        docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-        ```
-
+If you are a Mac user, run the following command:
+```bash
+docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+If you are a Windows Command Prompt user, use this command:
+```bash
+docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+If you are a Windows PowerShell user, use the following command:
+```bash
+docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
 Notes: The above "-v" option in docker command will mount your local lab folder into the container. So your edits in the Jupyter notebooks can be persistently saved on local harddrive, even after the container is deleted.  If you want to see yuor previous labs in ```$(pwd)/CSSLabs-NLP```, you can modify this option in the above docker commands to mount the parent folder that have all labs, i.e. ```$(pwd)/..``` on Mac OS.  So the option can be following:  
 ```bash
 docker run -v $(pwd)/..:/home/jovyan/work -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
